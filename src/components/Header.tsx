@@ -2,7 +2,7 @@ import { useCartSelector } from "../store/hooks";
 
 const Header = () => {
   const cartAmount = useCartSelector(state => state.items.length)
-
+  const items = useCartSelector(state => state.items)
   return (
     <>
       <header id="main-header">
@@ -12,6 +12,7 @@ const Header = () => {
         </div>
         <p>
           <button>Cart {cartAmount}</button>
+          {items.map(item => <p>{item.title}</p> )}
         </p>
       </header>
     </>
