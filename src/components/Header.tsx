@@ -1,6 +1,8 @@
-
+import { useCartSelector } from "../store/hooks";
 
 const Header = () => {
+  const cartAmount = useCartSelector(state => state.items.length)
+
   return (
     <>
       <header id="main-header">
@@ -9,7 +11,7 @@ const Header = () => {
           <h1>Elegant Redux</h1>
         </div>
         <p>
-          <button>Cart</button>
+          <button>Cart {cartAmount}</button>
         </p>
       </header>
     </>
