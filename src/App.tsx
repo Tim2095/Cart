@@ -1,11 +1,21 @@
+import { DUMMY_PRODUCTS } from "./dummy_products";
+import Product from './components/Product'
+import Shop from './components/Shop';
+import Header from "./components/Header";
 
 function App() {
-
   return (
     <>
-      <h1>Hello</h1>
+      <Header />
+      <Shop>
+        {DUMMY_PRODUCTS.map((product) => (
+          <li key={product.id}>
+            <Product {...product} />
+          </li>
+        ))}
+      </Shop>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
