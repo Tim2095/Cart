@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      {cartIs && <Cart />}
+      {cartIs && <Cart onClose={handleCartOpen} />}
       <header id="main-header">
         <div id="main-title">
           <img src="logo.png" alt="Elegant model" />
