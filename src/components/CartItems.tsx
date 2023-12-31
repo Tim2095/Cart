@@ -1,7 +1,9 @@
-import { useCartSelector } from "../store/hooks";
+import { useCartSelector, useCartDispatch } from "../store/hooks";
+import { addToCart } from "../store/cart-slice";
 
 const CartItems = () => {
   const cartItems = useCartSelector((state) => state.items);
+  const dispatch = useCartDispatch();
 
   return (
     <div id="cart">
@@ -20,7 +22,21 @@ const CartItems = () => {
                 <div className="cart-item-actions">
                   <button>-</button>
                   <span>{item.quantity}</span>
-                  <button>+</button>
+                  <button
+                    onClick={() =>
+                      dispatch(
+                        addToCart({
+                          id: item.id,
+                          description: item.description,
+                          title: item.title,
+                          quantity: item.quantity,
+                          price: item.price,
+                        })
+                      )
+                    }
+                  >
+                    +
+                  </button>
                 </div>
               </li>
             );
