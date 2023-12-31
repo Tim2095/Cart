@@ -2,10 +2,10 @@ import CartItems from "./CartItems";
 import { createPortal } from "react-dom";
 
 type CloseCart = {
-  onClose: () => void
-}
+  onClose: () => void;
+};
 
-const Cart = ({onClose}: CloseCart) => {
+const Cart = ({ onClose }: CloseCart) => {
   return createPortal(
     <>
       <div className="cart-backdrop" />
@@ -16,7 +16,8 @@ const Cart = ({onClose}: CloseCart) => {
           <button onClick={onClose}>Close</button>
         </p>
       </dialog>
-    </>, document.getElementById('modal')!
+    </>,
+    document.getElementById("modal")!
   );
 };
 

@@ -1,8 +1,13 @@
+import { useCartSelector } from "../store/hooks";
+
 const CartItems = () => {
+  const cartItems = useCartSelector((state) => state.items);
+
   return (
     <div id="cart">
       <h1>CART</h1>
-        {/* <ul id="cart-items">
+      {
+        <ul id="cart-items">
           {cartItems.map((item) => {
             const formattedPrice = `$${item.price.toFixed(2)}`;
 
@@ -13,17 +18,15 @@ const CartItems = () => {
                   <span> ({formattedPrice})</span>
                 </div>
                 <div className="cart-item-actions">
-                  <button onClick={() => handleRemoveFromCart(item.id)}>
-                    -
-                  </button>
+                  <button>-</button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => handleAddToCart(item)}>+</button>
+                  <button>+</button>
                 </div>
               </li>
             );
           })}
-        </ul> */}
-
+        </ul>
+      }
 
       {/* <p id="cart-total-price">
         Cart Total: <strong>${formattedTotalPrice}</strong>
